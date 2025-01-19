@@ -2,4 +2,5 @@
  <Header />
  <BreadCrumb />
  <ShoppingCart />
+ <ProductsList />
 </template>
