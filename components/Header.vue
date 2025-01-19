@@ -18,12 +18,4 @@
       </div>
     </div>
   </header>
-  <main>
-    <section class="shopping-cart">
-
-    </section>
-    <section class="products">
-      
-    </section>
-  </main>
 </template>
