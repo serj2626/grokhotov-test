@@ -200,6 +200,17 @@
   gap: 20px;
 }
 
+@media screen and (max-width: 1024px) {
+  .products__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .products__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .products_margin {
   margin-bottom: 116px;
 }
