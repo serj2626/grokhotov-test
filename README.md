@@ -1,4 +1,32 @@
-# Nuxt Minimal Starter
+# Тестовое задание на позицию Frontend Developer
+
+## [Макет](<https://www.figma.com/design/tgNM39UTjEaE4YmwE4QurL/Тестовое-Vue-(Copy)?node-id=1-210&t=Yqj2TDLRbNwwU8jz-0>)
+
+<hr>
+
+## Задачи
+
+- Создать nuxt3 проект
+- Сверстать макет
+- Сделать разметку адаптивной
+- Разбить на компоненты
+
+<hr>
+
+## Инструменты
+
+- nuxt3
+- vue3
+- typescript
+- pinia
+- swiper
+- css
+- scss
+- html
+
+<hr>
+
+## Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
