@@ -7,3 +7,140 @@
 
 
 // HEADER
+.header {
+    height: 100px;
+  }
+  
+  .header__container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .header__basket-data {
+    margin-top: 30px;
+    display: flex;
+    gap: 12px;
+  }
+  
+  .header__basket-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .header__basket-title {
+    font-size: 14px;
+    line-height: 150%;
+  }
+  .header__basket-count {
+    font-size: 12px;
+    line-height: 145%;
+    color: var(--color-article-price);
+  }
+  .header__basket-sum {
+    font-size: 12px;
+    line-height: 145%;
+    color: var(--color-dark);
+  }
+
+/* BREADCRUMBS */
+.breadcrumb_margin {
+    margin-block: 30px 60px;
+  }
+  
+  .breadcrumb__list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .breadcrumb__item {
+    list-style: none;
+  }
+  .breadcrumb__link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 150%;
+  }
+  
+  .breadcrumb__link_home {
+    color: #33374e;
+  }
+  
+  .breadcrumb__link_basket {
+    color: #797b86;
+  }
+
+
+  /* BASKET TOTAL */
+
+.total {
+    padding: 35px 30px;
+    margin: 20px 90px;
+    width: 425px;
+    background-color: #f6f8fa;
+  }
+  
+  .total__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 120.5%;
+    margin-bottom: 30px;
+  }
+  
+  .total__top-content {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+  }
+  .total__sum,
+  .total__count,
+  .total__installation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #1f2432;
+  }
+  .total__sum-title,
+  .total__count-title,
+  .total__installation-title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .total__sum-value,
+  .total__count-value,
+  .total__installation-value {
+    line-height: 145%;
+  }
+  
+  .total__footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  .total__footer-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .total__footer-value {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 130%;
+  }
+  
+  .total__horizontal-line {
+    width: 100%;
+    height: 1px;
+    background: #aeb0b6;
+    margin-block: 28px 10px;
+  }
+  
+  .total__btn_buy {
+    background-color: #fff;
+    color: #0069b4;
+    outline: 1px solid #0069b4;
+    margin-top: 12px;
+  }
