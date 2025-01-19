@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <div class="shopping-cart shooping_margin">
+  <div class="shopping-cart shooping-cart_margin">
     <div class="container shooping-cart__container">
       <div class="shooping-cart__top">
         <div class="shooping-cart__content">
@@ -11,9 +11,22 @@
 
         <a class="shooping-cart__clear">Очистить корзину</a>
       </div>
+
       <div class="shooping-cart__main">
-        
+        <div class="shopping-cart__list">
+          <ShoppingCartProduct />
+          <ShoppingCartProduct />
+          <ShoppingCartProduct />
+        </div>
+        <ShoppingCartTotal />
       </div>
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+.shopping-cart__list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+</style>
