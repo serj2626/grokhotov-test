@@ -1,6 +1,10 @@
 <template>
- <Header />
- <BreadCrumb />
- <ShoppingCart />
- <ProductsList />
+  <header class="header">
+    <Header />
+  </header>
+  <main>
+    <BreadCrumb />
+    <ShoppingCart />
+    <ProductsList />
+  </main>
 </template>
