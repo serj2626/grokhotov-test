@@ -11,6 +11,9 @@
 
         <a class="shooping-cart__clear">Очистить корзину</a>
       </div>
+      <div class="shooping-cart__main">
+        
+      </div>
     </div>
   </div>
 </template>
