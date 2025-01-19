@@ -1,0 +1,36 @@
+<script lang="ts" setup></script>
+
+<template>
+  <section class="total">
+    <div class="total__top">
+      <h3 class="total__title">Итого</h3>
+      <div class="total__top-content">
+        <div class="total__sum">
+          <p class="total__sum-title">Сумма заказа</p>
+          <p class="total__sum-value">50 576 ₽</p>
+        </div>
+        <div class="total__count">
+          <p class="total__count-title">Количество</p>
+          <p class="total__count-value">4 шт</p>
+        </div>
+        <div class="total__installation">
+          <p class="total__installation-title">Установка</p>
+          <p class="total__installation-value">Нет</p>
+        </div>
+      </div>
+    </div>
+    <div class="total__horizontal-line"></div>
+    <div class="total__footer">
+      <div class="total__footer-content">
+        <p class="total__footer-title">Стоимость товаров</p>
+        <p class="total__footer-value">50 576 ₽</p>
+      </div>
+      <button class="card__btn total__btn">Оформить заказ</button>
+      <button class="card__btn total__btn total__btn_buy">
+        Купить в 1 клик
+      </button>
+    </div>
+  </section>
+</template>
+
+<style lang="scss" scoped></style>
