@@ -1,0 +1,9 @@
+@mixin flex-mixin($isInline, $gap) {
+  display: flex;
+  @if $isInline {
+    flex-direction: row;
+  } @else {
+    flex-direction: column;
+  }
+  gap: $gap;
+}
