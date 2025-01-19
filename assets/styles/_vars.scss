@@ -1,3 +1,21 @@
 :root {
+  --color-white: #fff;
+
+  --color-dark: #1f2432;
+  --color-desc: #2c3242;
+  --color-article-price: #797b86;
+
+  --color-breadcrumb: #33374e;
+
+  --color-blue: #0069b4;
+  --color-gray: #f6f8fa;
+
+  --color-button: #90a2b5;
+
+  --color-border: 1px solid var(--color-blue);
+
+  --border-radius-button: 4px;
+
   --font-family-base: "Lato", sans-serif;
+  --font-family-add: "Roboto", sans-serif;
 }
