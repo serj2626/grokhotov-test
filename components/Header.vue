@@ -1,4 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useProductsStore } from "~/store/products";
+import { storeToRefs } from "pinia";
+
+const store = useProductsStore();
+
+const { totalCount, totalSum } = storeToRefs(store);
+</script>
 
 <template>
   <header class="header">
@@ -12,8 +19,8 @@
         />
         <div class="header__basket-content">
           <p class="header__basket-title">Ваша корзина</p>
-          <span class="header__basket-count">3 товара</span>
-          <strong class="header__basket-sum">50 576 ₽</strong>
+          <span class="header__basket-count">{{ totalCount }} товара</span>
+          <strong class="header__basket-sum">{{ totalSum }} ₽</strong>
         </div>
       </div>
     </div>
