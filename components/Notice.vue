@@ -1,8 +1,14 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useProductsStore } from "~/store/products";
+import { storeToRefs } from "pinia";
+
+const store = useProductsStore();
+const { checked } = storeToRefs(store);
+</script>
 
 <template>
   <div class="notice">
-    <input class="notice__checkbox" type="checkbox" />
+    <input class="notice__checkbox" :checked="checked" type="checkbox" />
     <img
       class="notice__img"
       src="~/assets/img/installed.svg"
