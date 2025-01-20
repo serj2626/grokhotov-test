@@ -32,6 +32,11 @@ defineProps<{ product: IProductViews }>();
   padding: 25px;
   width: 305px;
   background-color: var(--color-gray);
+  transition: var(--transition-base);
+
+  &:hover {
+    scale: 1.05;
+  }
 }
 
 .card__img {
@@ -52,12 +57,7 @@ defineProps<{ product: IProductViews }>();
   font-size: 14px;
   color: #1f2432;
   line-height: 145%;
-  min-height: 97px;
-}
-
-.card__body-top {
-  margin-bottom: 39px;
-  
+  height: 97px;
 }
 
 .card__body-footer {
