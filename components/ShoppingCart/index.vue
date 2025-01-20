@@ -3,7 +3,7 @@ import { useProductsStore } from "~/store/products";
 import { storeToRefs } from "pinia";
 
 const store = useProductsStore();
-const { products } = storeToRefs(store);
+const { allProducts: products } = storeToRefs(store);
 </script>
 
 <template>
