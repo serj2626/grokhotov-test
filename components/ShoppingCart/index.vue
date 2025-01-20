@@ -3,7 +3,8 @@ import { useProductsStore } from "~/store/products";
 import { storeToRefs } from "pinia";
 
 const store = useProductsStore();
-const { allProducts: products } = storeToRefs(store);
+const { allProducts, totalCount } = storeToRefs(store);
+const { delAllProducts } = store;
 </script>
 
 <template>
@@ -12,20 +13,23 @@ const { allProducts: products } = storeToRefs(store);
       <div class="shooping-cart__top">
         <div class="shooping-cart__content">
           <h2 class="shooping-cart__title">Ваша корзина</h2>
-          <span class="shooping-cart__count">4 товара</span>
+          <span class="shooping-cart__count">{{ totalCount }} товара</span>
         </div>
 
-        <a class="shooping-cart__clear">Очистить корзину</a>
+        <a @click="delAllProducts" class="shooping-cart__clear"
+          >Очистить корзину</a
+        >
       </div>
 
       <div class="shooping-cart__main">
-        <div class="shopping-cart__list-products">
+        <div v-if="allProducts.length" class="shopping-cart__list-products">
           <ShoppingCartProduct
-            v-for="(product, index) in products"
+            v-for="(product, index) in allProducts"
             :key="index"
             :product="product"
           />
         </div>
+        <p v-else class="shooping-cart__empty">Корзина пуста</p>
         <ShoppingCartTotal />
       </div>
       <div class="shooping-cart__bottom">
@@ -43,5 +47,12 @@ const { allProducts: products } = storeToRefs(store);
 
 .shooping-cart_margin {
   margin-bottom: 95px;
+}
+
+.shooping-cart__empty {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 25px;
 }
 </style>
