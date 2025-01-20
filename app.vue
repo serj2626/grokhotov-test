@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-const { data } = await useFetch('/api/products');
-console.log(data);
 </script>
 
 <template>
@@ -10,6 +8,7 @@ console.log(data);
   <main>
     <BreadCrumb />
     <ShoppingCart />
-    <ProductsList />
+    <ProductsViewsList />
+    <!-- <Alert show="true" view="buy" /> -->
   </main>
 </template>
