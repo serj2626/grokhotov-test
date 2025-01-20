@@ -1,30 +1,43 @@
 <script lang="ts" setup>
 import type { IProduct } from "~/store/products";
+import { useProductsStore } from "~/store/products";
+import { storeToRefs } from "pinia";
 
-defineProps<{ product: IProduct }>();
+const store = useProductsStore();
+
+const { incrementCount, decrementCount, getCurrentProduct } = store;
+
+const props = defineProps<{ product: IProduct }>();
+
+
+const product = getCurrentProduct(props.product.id);
+
+console.log(product);
 </script>
 
 <template>
   <article class="product">
     <img
       class="product__img"
-      src="~/assets/img/products/one.jpg"
+      :src="$props.product.image"
       alt="product"
       loading="lazy"
     />
     <div class="product__info">
-      <h3 class="product__title">{{ $props.product.title }}</h3>
-      <p class="product__desc" v-html="$props.product.description">
-
-      </p>
-      <span class="product__article">{{ $props.product.article }}</span>
+      <h3 class="product__title">{{ props.product.title }}</h3>
+      <p class="product__desc" v-html="props.product.description"></p>
+      <span class="product__article">{{ props.product.article }}</span>
     </div>
     <div class="product__actions">
-      <button class="product__btn">-</button>
-      <button class="product__btn" disabled>
-        {{ $props.product.count }}
+      <button class="product__btn" @click="decrementCount(props.product.id)">
+        -
       </button>
-      <button class="product__btn">+</button>
+      <button class="product__btn" disabled>
+        {{ props.product.count }}
+      </button>
+      <button class="product__btn" @click="incrementCount(props.product.id)">
+        +
+      </button>
     </div>
     <strong class="product__sum">12 644 ₽</strong>
     <button class="product__close">&times</button>
