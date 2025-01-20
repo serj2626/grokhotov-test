@@ -19,9 +19,12 @@ const message = computed(() => {
 <template>
   <div class="alert">
     <Transition name="fade">
-      <p class="alert__text">
-        {{ message }}
-      </p>
+      <div class="alert__modal">
+        <p class="alert__text">
+          {{ message }}
+        </p>
+        <span class="alert__info">Данное уведомление закроется через 2 секунды</span>
+      </div>
     </Transition>
   </div>
 </template>
@@ -35,16 +38,33 @@ const message = computed(() => {
   bottom: 0;
   z-index: 10;
 
-  background-color: rgb(219, 174, 13);
+  background-color: rgba(0, 0, 0, 0.724);
   font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &__modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    background-color: #dc2020;
+    padding: 30px 50px;
+    border-radius: 15px;
+  }
   &__text {
     color: #fff;
     text-align: center;
     font-size: 20px;
     font-weight: 600;
+  }
+
+  &__info {
+    color: #fff;
+    font-size: 14px;
   }
 }
 
