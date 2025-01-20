@@ -4,7 +4,7 @@ import { storeToRefs } from "pinia";
 
 const store = useProductsStore();
 
-const { totalCount, totalSum } = storeToRefs(store);
+const { totalCount, totalSum , checked} = storeToRefs(store);
 </script>
 
 <template>
@@ -22,7 +22,7 @@ const { totalCount, totalSum } = storeToRefs(store);
         </div>
         <div class="total__installation">
           <p class="total__installation-title">Установка</p>
-          <p class="total__installation-value">Нет</p>
+          <p class="total__installation-value">{{ checked ? "Да" : "Нет" }}</p>
         </div>
       </div>
     </div>
