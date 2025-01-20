@@ -13,20 +13,27 @@
       </div>
 
       <div class="shooping-cart__main">
-        <div class="shopping-cart__list">
+        <div class="shopping-cart__list-products">
           <ShoppingCartProduct />
           <ShoppingCartProduct />
           <ShoppingCartProduct />
         </div>
         <ShoppingCartTotal />
       </div>
+      <div class="shooping-cart__bottom">
+        <div class="shooping-cart__bottom-notice">
+dsa
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
-.shopping-cart__list {
+.shopping-cart__list-products {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
+
+
 </style>
