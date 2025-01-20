@@ -5,42 +5,40 @@ import { storeToRefs } from "pinia";
 
 const store = useProductsStore();
 
-const { incrementCount, decrementCount, getCurrentProduct } = store;
+const { incrementCount, decrementCount, getCurrentProduct, removeProduct } =
+  store;
 
-const props = defineProps<{ product: IProduct }>();
-
-
-const product = getCurrentProduct(props.product.id);
-
-console.log(product);
+const { product } = defineProps<{ product: IProduct }>();
 </script>
 
 <template>
   <article class="product">
     <img
       class="product__img"
-      :src="$props.product.image"
+      :src="product.image"
       alt="product"
       loading="lazy"
     />
     <div class="product__info">
-      <h3 class="product__title">{{ props.product.title }}</h3>
-      <p class="product__desc" v-html="props.product.description"></p>
-      <span class="product__article">{{ props.product.article }}</span>
+      <h3 class="product__title">{{ product.title }} {{ product.id }}</h3>
+      <p class="product__desc" v-html="product.description"></p>
+      <span class="product__article">{{ product.article }}</span>
     </div>
     <div class="product__actions">
-      <button class="product__btn" @click="decrementCount(props.product.id)">
+      <button class="product__btn" @click="decrementCount(product.id)">
         -
       </button>
       <button class="product__btn" disabled>
-        {{ props.product.count }}
+        {{ product.count }}
       </button>
-      <button class="product__btn" @click="incrementCount(props.product.id)">
+      <button class="product__btn" @click="incrementCount(product.id)">
         +
       </button>
     </div>
     <strong class="product__sum">12 644 ₽</strong>
-    <button class="product__close">&times</button>
+    <button @click="removeProduct(product.id)" class="product__close">
+      &times
+    </button>
   </article>
 </template>
 <style scoped lang="scss">
