@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface IProductViews {
     title: string,
     description: string,
     image: string,
@@ -7,7 +7,7 @@ export interface IProduct {
 }
 
 
-export const productViews: IProduct[] = [
+export const viewsProducts: IProductViews[] = [
     {
         title: "BXC",
         description: "Вытяжное устройство для механической системы вентиляции",
