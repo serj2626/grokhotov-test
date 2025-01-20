@@ -19,7 +19,7 @@
     </div>
     <div class="product__actions">
       <button class="product__btn">-</button>
-      <button class="product__btn">0</button>
+      <button class="product__btn" disabled>0</button>
       <button class="product__btn">+</button>
     </div>
     <strong class="product__sum">12 644 ₽</strong>
