@@ -1,6 +1,10 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 
+import two from "~/assets/img/products/two.png";
+import one from "~/assets/img/products/one.png";
+import three from "~/assets/img/products/three.png";
+
 export interface IProduct {
   id: number;
   title: string;
@@ -19,7 +23,7 @@ export const useProductsStore = defineStore("products", () => {
       title: "Вытяжное устройство G2H",
       description:
         "<span>12-72/168 м3/ч / гидрорегулируемый расход <br>от датчика присутствия</span>",
-      image: "~/assets/img/products/one.jpg",
+      image: two,
       article: "Артикул: G2H1065",
       count: 1,
       price: 12644,
@@ -30,7 +34,7 @@ export const useProductsStore = defineStore("products", () => {
       title: "Вытяжное устройство BXC",
       description:
         "<span>12-72/168 м3/ч / гидрорегулируемый расход <br>от датчика присутствия</span>",
-      image: "~/assets/img/products/zero.jpg",
+      image: one,
       article: "Артикул: G2H10655",
       count: 2,
       price: 12644,
@@ -41,13 +45,17 @@ export const useProductsStore = defineStore("products", () => {
       title: "Вытяжное устройство GHN",
       description:
         "<span>12-72/168 м3/ч / гидрорегулируемый расход <br>от датчика присутствия</span>",
-      image: "~/assets/img/products/two.jpg",
+      image: three,
       article: "Артикул: G2H1065",
       count: 1,
       price: 12644,
       currency: "₽",
     },
   ]);
+
+  const getCurrentProduct = (id: number) => {
+    return products.value.find((product) => product.id === id);
+  };
 
   const allProducts = computed(() => {
     return products.value;
@@ -67,7 +75,7 @@ export const useProductsStore = defineStore("products", () => {
 
   const incrementCount = (index: number) => {
     return products.value.map((product, i) => {
-      if (i === index) {
+      if (i === index-1) {
         product.count++;
       }
       return product;
@@ -76,7 +84,7 @@ export const useProductsStore = defineStore("products", () => {
 
   const decrementCount = (index: number) => {
     return products.value.map((product, i) => {
-      if (i === index && product.count > 1) {
+      if (i === index-1 && product.count >= 1) {
         product.count--;
       }
       return product;
@@ -103,5 +111,6 @@ export const useProductsStore = defineStore("products", () => {
     toggleChecked,
     checked,
     delAllProducts,
+    getCurrentProduct,
   };
 });
