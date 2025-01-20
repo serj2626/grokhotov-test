@@ -1,3 +1,8 @@
+import one from '~/assets/img/products/zero.jpg';
+import two from '~/assets/img/products/one.jpg';
+import three from '~/assets/img/products/two.jpg';
+import four from '~/assets/img/products/three.jpg';
+
 export interface IProductViews {
     title: string,
     description: string,
@@ -11,28 +16,28 @@ export const viewsProducts: IProductViews[] = [
     {
         title: "BXC",
         description: "Вытяжное устройство для механической системы вентиляции",
-        image: "~/assets/img/products/zero.jpg",
+        image: one,
         priceRub: "6 848 ₽ – 56 584 ₽",
         priceEur: "77.60 € – 643.86 €"
     },
     {
         title: "G2H",
         description: "Многофункциональное вытяжное устройство для естественной и гибридной вентиляции",
-        image: "~/assets/img/products/one.jpg",
+        image: two,
         priceRub: "6 848 ₽ – 56 584 ₽",
         priceEur: "77.60 € – 643.86 €"
     },
     {
         title: "GHN",
         description: "Вытяжное устройство с датчиком присутствия",
-        image: "~/assets/img/products/two.jpg",
+        image: three,
         priceRub: "6 848 ₽ – 56 584 ₽",
         priceEur: "77.60 € – 643.86 €"
     },
     {
         title: "TDA",
         description: "Вытяжное устройство с датчиком присутствия",
-        image: "~/assets/img/products/three.jpg",
+        image: four,
         priceRub: "6 848 ₽ – 56 584 ₽",
         priceEur: "77.60 € – 643.86 €"
     }
