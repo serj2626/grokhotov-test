@@ -47,6 +47,10 @@ export const useCategoriesStore = defineStore('products', () => {
     }
   ])
 
+  const allProducts = computed(() => {
+    return products.value
+  })
+
   const checked = ref(false)
 
 
@@ -84,5 +88,5 @@ export const useCategoriesStore = defineStore('products', () => {
     checked.value = !checked.value
   }
 
-  return { products, totalSum, totalCount, incrementCount, decrementCount, toggleChecked, checked }
+  return { products, allProducts, totalSum, totalCount, incrementCount, decrementCount, toggleChecked, checked }
 })
