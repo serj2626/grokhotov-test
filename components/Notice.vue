@@ -4,11 +4,12 @@ import { storeToRefs } from "pinia";
 
 const store = useProductsStore();
 const { checked } = storeToRefs(store);
+const { toggleChecked } = store;
 </script>
 
 <template>
   <div class="notice">
-    <input class="notice__checkbox" :checked="checked" type="checkbox" />
+    <input class="notice__checkbox" :checked="checked" @click="toggleChecked" type="checkbox" />
     <img
       class="notice__img"
       src="~/assets/img/installed.svg"
@@ -18,7 +19,8 @@ const { checked } = storeToRefs(store);
     <div class="notice__info">
       <p class="notice__title">Установка</p>
       <span class="notice__desc">
-        Отметьте, если Вам необходима консультация профессионала по монтажу выбранных товаров.
+        Отметьте, если Вам необходима консультация профессионала по монтажу
+        выбранных товаров.
       </span>
     </div>
   </div>
