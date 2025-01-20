@@ -91,6 +91,10 @@ export const useProductsStore = defineStore("products", () => {
     });
   };
 
+  const removeProduct = (index: number) => {
+    products.value = products.value.filter(item => item.id !== index);
+  };
+
   const delAllProducts = () => {
     products.value = [];
   };
@@ -112,5 +116,6 @@ export const useProductsStore = defineStore("products", () => {
     checked,
     delAllProducts,
     getCurrentProduct,
+    removeProduct
   };
 });
