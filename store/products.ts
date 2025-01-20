@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue';
 
-interface IProduct {
+export interface IProduct {
   id: number;
   title: string;
   description: string;
@@ -12,13 +12,13 @@ interface IProduct {
   currency: string;
 }
 
-export const useCategoriesStore = defineStore('products', () => {
+export const useProductsStore = defineStore('products', () => {
 
   const products = ref<IProduct[]>([
     {
       id: 1,
       title: "Вытяжное устройство G2H",
-      description: "12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия",
+      description: "<span>12-72/168 м3/ч / гидрорегулируемый расход <br>от датчика присутствия</span>",
       image: "~/assets/img/products/one.jpg",
       article: "Артикул: G2H1065",
       count: 1,
@@ -28,7 +28,7 @@ export const useCategoriesStore = defineStore('products', () => {
     {
       id: 2,
       title: "Вытяжное устройство BXC",
-      description: "12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия",
+      description: "<span>12-72/168 м3/ч / гидрорегулируемый расход <br>от датчика присутствия</span>",
       image: "~/assets/img/products/zero.jpg",
       article: "Артикул: G2H10655",
       count: 2,
@@ -38,7 +38,7 @@ export const useCategoriesStore = defineStore('products', () => {
     {
       id: 3,
       title: "Вытяжное устройство GHN",
-      description: "12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия",
+      description: "<span>12-72/168 м3/ч / гидрорегулируемый расход <br>от датчика присутствия</span>",
       image: "~/assets/img/products/two.jpg",
       article: "Артикул: G2H1065",
       count: 1,
@@ -51,7 +51,7 @@ export const useCategoriesStore = defineStore('products', () => {
     return products.value
   })
 
-  const checked = ref(false)
+  const checked = ref(true)
 
 
   const totalSum = computed(() => {
