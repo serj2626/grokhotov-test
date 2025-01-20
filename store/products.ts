@@ -51,8 +51,6 @@ export const useProductsStore = defineStore('products', () => {
     return products.value
   })
 
-  const checked = ref(true)
-
 
   const totalSum = computed(() => {
     return products.value.reduce((acc, product) => {
@@ -84,6 +82,8 @@ export const useProductsStore = defineStore('products', () => {
     })
   }
 
+  const checked = ref(true)
+  
   const toggleChecked = () => {
     checked.value = !checked.value
   }
