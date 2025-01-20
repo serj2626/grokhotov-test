@@ -25,10 +25,21 @@
         <p class="total__footer-title">Стоимость товаров</p>
         <p class="total__footer-value">50 576 ₽</p>
       </div>
-      <button class="card__btn total__btn">Оформить заказ</button>
-      <button class="card__btn total__btn total__btn_buy">
-        Купить в 1 клик
-      </button>
+
+      <div class="total__actions">
+        <UIButton :color="'blue'" class="total__btn"
+          >Оформить заказ</UIButton
+        >
+        <UIButton :color="'white'" class="total__btn">Купить в 1 клик</UIButton>
+      </div>
     </div>
   </section>
 </template>
+<style lang="scss" scoped>
+.total__actions{
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+</style>
