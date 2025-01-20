@@ -1,27 +1,37 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import type {IProductViews} from "~/types/product_views.data";
+
+defineProps<{product: IProductViews}>();
+</script>
 
 <template>
+
   <article class="card">
     <img
       class="card__img"
-      src="~/assets/img/products/one.jpg"
+ 
+      :src="product.image"
       alt="Product"
       loading="lazy"
     />
     <div class="card__body">
       <div class="card__body-top">
-        <h3 class="card__title">G2H</h3>
+        <h3 class="card__title">{{ product.title }}</h3>
         <p class="card__desc">
-          Многофункциональное вытяжное устройство для естественной и гибридной
-          вентиляции
+          {{ product.description }}
         </p>
       </div>
     </div>
     <div class="card__body-footer">
-      <strong class="card__price-rub">6 848 ₽ – 56 584 ₽</strong>
-      <span class="card__price-eur">77.60 € – 643.86 €</span>
+      <strong class="card__price-rub">{{ product.priceRub }}</strong>
+      <span class="card__price-eur">{{ product.priceEur }}</span>
 
-      <button class="card__btn">Подробнее</button>
+      <button class="card__btn card__btn_margin">Подробнее</button>
     </div>
   </article>
 </template>
+<style lang="scss" scoped>
+.card__btn_margin {
+  margin-top: 20px;
+}
+</style>
