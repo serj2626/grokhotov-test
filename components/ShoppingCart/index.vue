@@ -8,7 +8,7 @@ const { delAllProducts } = store;
 </script>
 
 <template>
-  <div class="shopping-cart shooping-cart_margin">
+  <div class="shopping-cart shooping-cart_margin shopping-cart_position">
     <div class="container shooping-cart__container container_padding">
       <div class="shooping-cart__top">
         <div class="shooping-cart__content">
@@ -39,6 +39,10 @@ const { delAllProducts } = store;
   </div>
 </template>
 <style lang="scss" scoped>
+.shopping-cart_position {
+  position: relative;
+}
+
 .shopping-cart__list-products {
   display: flex;
   flex-direction: column;
