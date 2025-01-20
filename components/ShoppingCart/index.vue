@@ -8,7 +8,7 @@ const { allProducts: products } = storeToRefs(store);
 
 <template>
   <div class="shopping-cart shooping-cart_margin">
-    <div class="container shooping-cart__container">
+    <div class="container shooping-cart__container container_padding">
       <div class="shooping-cart__top">
         <div class="shooping-cart__content">
           <h2 class="shooping-cart__title">Ваша корзина</h2>
