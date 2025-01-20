@@ -28,5 +28,9 @@ const styleObject = computed(() => {
   border: none;
   width: 100%;
   transition: var(--transition-base);
+
+  &:hover {
+    scale: 1.05;
+  }
 }
 </style>
