@@ -121,7 +121,7 @@ defineProps<{ product: IProduct }>();
 
 .product__close {
   position: absolute;
-  right: 1px;
+  right: 0;
   top: 0;
   background-color: transparent;
   border: none;
