@@ -188,16 +188,14 @@
 /* ################ SHOPPING CART MAIN ################### */
 
 .shooping-cart__main {
-  // display: flex;
   display: grid;
   gap: 55px;
   grid-template-columns: 800px 425px;
 }
 
-
 /* ################ VIEWS PRODUCTS LIST ################### */
 
-.products{
+.products {
   padding-bottom: 116px;
 }
 
@@ -208,35 +206,28 @@
   line-height: 120.5%;
   margin-bottom: 60px;
 }
+
 .products__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 /* ################ VIEWS PRODUCTS DETAIL ################### */
-
-/* 
 .card {
   padding: 25px;
-  width: 305px;
   background-color: var(--color-gray);
+  transition: var(--transition-base);
+
+  &:hover {
+    scale: 1.05;
+  }
 }
 
 .card__img {
+  display: block;
   width: 100%;
   height: 245px;
   margin-bottom: 5px;
-}
-
-.card__btn {
-  display: block;
-  border-radius: 4px;
-  font-size: 16px;
-  color: white;
-  background-color: #0069b4;
-  padding-block: 15px;
-  border: none;
-  width: 100%;
 }
 
 .card__title {
@@ -250,15 +241,23 @@
   font-size: 14px;
   color: #1f2432;
   line-height: 145%;
-}
-
-.card__body-top {
-  margin-bottom: 39px;
+  height: 97px;
 }
 
 .card__body-footer {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card__footer-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .card__price-rub {
   font-size: 22px;
@@ -272,4 +271,3 @@
   font-size: 16px;
   color: #797b86;
 }
-*/
