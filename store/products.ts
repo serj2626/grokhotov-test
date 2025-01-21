@@ -55,6 +55,7 @@ export const useProductsStore = defineStore("products", () => {
   ]);
 
   const checked = ref(false);
+  const message = ref("");
 
   const getCurrentProduct = (id: number) => {
     return products.value.find((product) => product.id === id);
@@ -105,10 +106,31 @@ export const useProductsStore = defineStore("products", () => {
 
   const delAllProducts = () => {
     products.value = [];
+    message.value = "Ваша корзина очищена";
+  };
+
+  const submitForm = async (formData: any) => {
+    if (products.value.length) {
+      try {
+        const response = await $fetch("/api/orders", {
+          method: "POST",
+          body: formData,
+        });
+        console.log(response);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      message.value = "Отправка невозможна, тк корзина пуста";
+    }
   };
 
   const toggleChecked = () => {
     checked.value = !checked.value;
+  };
+
+  const clearMessage = () => {
+    message.value = "";
   };
 
   return {
@@ -116,12 +138,17 @@ export const useProductsStore = defineStore("products", () => {
     allProducts,
     totalSum,
     totalCount,
+    checked,
+    message,
+
     incrementCount,
     decrementCount,
     toggleChecked,
-    checked,
     delAllProducts,
     getCurrentProduct,
     removeProduct,
+    submitForm,
+    clearMessage,
+    
   };
 });
