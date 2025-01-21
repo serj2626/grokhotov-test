@@ -117,8 +117,10 @@ export const useProductsStore = defineStore("products", () => {
           body: formData,
         });
         console.log(response);
+        message.value = "Ваша заявка успешно отправлена";
       } catch (error) {
         console.error(error);
+        message.value = "Произошла ошибка при отправке заявки";
       }
     } else {
       message.value = "Отправка невозможна, тк корзина пуста";
