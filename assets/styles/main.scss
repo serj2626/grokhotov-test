@@ -3,7 +3,6 @@
 @use "vars";
 @use "globals";
 @use "mixins";
-@use "media";
 
 /* ################ HEADER  ################### */
 
@@ -270,4 +269,27 @@
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #797b86;
+}
+
+/* ################   MEDIA   ################### */
+
+@media (max-width: 1050px) {
+  .products__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 780px) {
+  .products__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shooping-cart__main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 550px) {
+  .products__list {
+    grid-template-columns: 1fr;
+  }
 }
