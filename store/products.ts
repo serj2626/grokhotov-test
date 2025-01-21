@@ -114,28 +114,20 @@ export const useProductsStore = defineStore("products", () => {
   };
 
   const submitForm = async () => {
-    // if (products.value.length) {
-    //   try {
-    //     const response = await $fetch("https://0520dfbd4229d5e2.mokky.dev/orders", {
-    //       method: "POST",
-    //       body: formData,
-    //     });
-    //     console.log(response);
-    //     message.value = "Ваша заявка успешно отправлена";
-    //   } catch (error) {
-    //     console.error(error);
-    //     message.value = "Произошла ошибка при отправке заявки";
-    //   }
-    // } else {
-    //   message.value = "Отправка невозможна, тк корзина пуста";
-    // }
-
     if (products.value.length) {
-      console.log("Ваша заявка успешно отправлена");
-      setValueMessage("Ваша заявка успешно отправлена");
-      products.value = [];
+      try {
+        const response = await $fetch("https://0520dfbd4229d5e2.mokky.dev/orders", {
+          method: "POST",
+          body: products.value,
+        });
+        console.log(response);
+        setValueMessage("Ваша заявка успешно отправлена");
+        products.value = [];
+      } catch (error) {
+        setValueMessage("Отправка невозможна, тк корзина пуста");
+      }
     } else {
-      setValueMessage("Отправка невозможна, тк корзина пуста");
+      message.value = "Отправка невозможна, тк корзина пуста";
     }
   };
 
