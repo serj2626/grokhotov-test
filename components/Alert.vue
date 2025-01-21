@@ -1,80 +1,47 @@
 <script lang="ts" setup>
+import { useProductsStore } from "~/store/products";
+
+const store = useProductsStore();
+
 interface IProps {
-  show: boolean;
-  view: "modal" | "buy" | "decr";
+  message: string;
 }
 
-const props = defineProps<IProps>();
-
-const message = computed(() => {
-  if (props.view === "modal") {
-    return "Модальное окно не работает";
-  } else if (props.view === "buy") {
-    return "Купить не работает";
-  }
-  return "Количество ниже нуля не предусмотренно";
-});
+defineProps<IProps>();
 </script>
 
 <template>
-  <div class="alert">
-    <Transition name="fade">
-      <div class="alert__modal">
-        <p class="alert__text">
-          {{ message }}
-        </p>
-        <span class="alert__info">Данное уведомление закроется через 2 секунды</span>
-      </div>
-    </Transition>
+  <div class="alert" v-if="message">
+    <p class="alert__text">
+      {{ message }}
+    </p>
+    <span class="alert__info"
+      >Данное уведомление закроется через 2 секунды</span
+    >
   </div>
 </template>
 
 <style lang="scss" scoped>
 .alert {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 10;
+  position: absolute;
+  top: 20px;
+  padding: 10px 15px;
+  background-color: orange;
 
-  background-color: rgba(0, 0, 0, 0.724);
-  font-size: 20px;
-  &__modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  border-radius: 15px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-
-    background-color: #dc2020;
-    padding: 30px 50px;
-    border-radius: 15px;
-  }
   &__text {
-    color: #fff;
-    text-align: center;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
+    color: white;
+    text-align: center;
   }
 
   &__info {
-    color: #fff;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
   }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
