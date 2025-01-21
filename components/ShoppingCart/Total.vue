@@ -4,7 +4,8 @@ import { storeToRefs } from "pinia";
 
 const store = useProductsStore();
 
-const { totalCount, totalSum , checked} = storeToRefs(store);
+const { totalCount, totalSum, checked } = storeToRefs(store);
+const { submitForm, setValueMessage } = store;
 </script>
 
 <template>
@@ -34,8 +35,8 @@ const { totalCount, totalSum , checked} = storeToRefs(store);
       </div>
 
       <div class="total__actions">
-        <UIButton :color="'blue'" class="total__btn">Оформить заказ</UIButton>
-        <UIButton :color="'white'" class="total__btn">Купить в 1 клик</UIButton>
+        <UIButton @click="submitForm" :color="'blue'" class="total__btn">Оформить заказ</UIButton>
+        <UIButton @click="setValueMessage('Данный функционал в разработке')" :color="'white'" class="total__btn">Купить в 1 клик</UIButton>
       </div>
     </div>
   </section>
