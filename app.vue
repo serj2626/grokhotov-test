@@ -9,6 +9,5 @@
     <BreadCrumb />
     <ShoppingCart />
     <ProductsViewsList />
-    <!-- <Alert show="true" view="buy" /> -->
   </main>
 </template>
