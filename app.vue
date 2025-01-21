@@ -10,4 +10,5 @@
     <ShoppingCart />
     <ProductsViewsList />
   </main>
+  <Main />
 </template>
