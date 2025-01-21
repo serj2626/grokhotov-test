@@ -14,6 +14,7 @@ export interface IProduct {
   count: number;
   price: number;
   currency: string;
+  totalSum?: number;
 }
 
 export const useProductsStore = defineStore("products", () => {
@@ -53,12 +54,19 @@ export const useProductsStore = defineStore("products", () => {
     },
   ]);
 
+  const checked = ref(false);
+
   const getCurrentProduct = (id: number) => {
     return products.value.find((product) => product.id === id);
   };
 
   const allProducts = computed(() => {
-    return products.value;
+    return products.value.map((product) => {
+      return {
+        ...product,
+        totalSum: product.price * product.count,
+      };
+    });
   });
 
   const totalSum = computed(() => {
@@ -75,7 +83,7 @@ export const useProductsStore = defineStore("products", () => {
 
   const incrementCount = (index: number) => {
     return products.value.map((product, i) => {
-      if (i === index-1) {
+      if (i === index - 1) {
         product.count++;
       }
       return product;
@@ -84,7 +92,7 @@ export const useProductsStore = defineStore("products", () => {
 
   const decrementCount = (index: number) => {
     return products.value.map((product, i) => {
-      if (i === index-1 && product.count >= 1) {
+      if (i === index - 1 && product.count >= 1) {
         product.count--;
       }
       return product;
@@ -92,14 +100,12 @@ export const useProductsStore = defineStore("products", () => {
   };
 
   const removeProduct = (index: number) => {
-    products.value = products.value.filter(item => item.id !== index);
+    products.value = products.value.filter((item) => item.id !== index);
   };
 
   const delAllProducts = () => {
     products.value = [];
   };
-
-  const checked = ref(false);
 
   const toggleChecked = () => {
     checked.value = !checked.value;
@@ -116,6 +122,6 @@ export const useProductsStore = defineStore("products", () => {
     checked,
     delAllProducts,
     getCurrentProduct,
-    removeProduct
+    removeProduct,
   };
 });
