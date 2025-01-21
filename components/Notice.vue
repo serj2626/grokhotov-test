@@ -9,7 +9,7 @@ const { toggleChecked } = store;
 
 <template>
   <div class="notice">
-    <input class="notice__checkbox" :checked="checked" @click="toggleChecked" type="checkbox" />
+    <UICheckBox :checked="checked" @toggle="toggleChecked" />
     <img
       class="notice__img"
       src="~/assets/img/installed.svg"
@@ -36,10 +36,7 @@ const { toggleChecked } = store;
   padding-left: 25px;
   background-color: var(--color-gray);
 }
-.notice__checkbox {
-  width: 20px;
-  height: 20px;
-}
+
 .notice__img {
   margin-left: 20px;
 }
