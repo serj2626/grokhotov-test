@@ -83,7 +83,7 @@ export const useProductsStore = defineStore("products", () => {
   });
 
   const incrementCount = (index: number) => {
-    return products.value.map(product => {
+    return products.value.map((product) => {
       if (product.id === index) {
         product.count++;
       }
@@ -92,7 +92,7 @@ export const useProductsStore = defineStore("products", () => {
   };
 
   const decrementCount = (index: number) => {
-    return products.value.map(product => {
+    return products.value.map((product) => {
       if (product.id === index && product.count >= 1) {
         product.count--;
       }
@@ -105,25 +105,37 @@ export const useProductsStore = defineStore("products", () => {
   };
 
   const delAllProducts = () => {
-    products.value = [];
-    message.value = "Ваша корзина очищена";
+    if (products.value.length) {
+      products.value = [];
+      setValueMessage("Ваша корзина очищена");
+    } else {
+      setValueMessage("Ваша корзина и так пуста");
+    }
   };
 
-  const submitForm = async (formData: any) => {
+  const submitForm = async () => {
+    // if (products.value.length) {
+    //   try {
+    //     const response = await $fetch("https://0520dfbd4229d5e2.mokky.dev/orders", {
+    //       method: "POST",
+    //       body: formData,
+    //     });
+    //     console.log(response);
+    //     message.value = "Ваша заявка успешно отправлена";
+    //   } catch (error) {
+    //     console.error(error);
+    //     message.value = "Произошла ошибка при отправке заявки";
+    //   }
+    // } else {
+    //   message.value = "Отправка невозможна, тк корзина пуста";
+    // }
+
     if (products.value.length) {
-      try {
-        const response = await $fetch("/api/orders", {
-          method: "POST",
-          body: formData,
-        });
-        console.log(response);
-        message.value = "Ваша заявка успешно отправлена";
-      } catch (error) {
-        console.error(error);
-        message.value = "Произошла ошибка при отправке заявки";
-      }
+      console.log("Ваша заявка успешно отправлена");
+      setValueMessage("Ваша заявка успешно отправлена");
+      products.value = [];
     } else {
-      message.value = "Отправка невозможна, тк корзина пуста";
+      setValueMessage("Отправка невозможна, тк корзина пуста");
     }
   };
 
@@ -131,8 +143,17 @@ export const useProductsStore = defineStore("products", () => {
     checked.value = !checked.value;
   };
 
+  function setValueMessage(value: string) {
+    message.value = value;
+
+    setTimeout(() => {
+      message.value = "";
+    }, 2000);
+  }
   const clearMessage = () => {
-    message.value = "";
+    setTimeout(() => {
+      message.value = "";
+    }, 2000);
   };
 
   return {
@@ -151,6 +172,6 @@ export const useProductsStore = defineStore("products", () => {
     removeProduct,
     submitForm,
     clearMessage,
-    
+    setValueMessage,
   };
 });
