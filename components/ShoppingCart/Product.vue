@@ -5,7 +5,7 @@ import { storeToRefs } from "pinia";
 
 const store = useProductsStore();
 
-const { incrementCount, decrementCount, getCurrentProduct, removeProduct } =
+const { incrementCount, decrementCount,  removeProduct } =
   store;
 
 const { product } = defineProps<{ product: IProduct }>();
@@ -35,7 +35,7 @@ const { product } = defineProps<{ product: IProduct }>();
         +
       </button>
     </div>
-    <strong class="product__sum">12 644 ₽</strong>
+    <strong class="product__sum">{{ product.totalSum }} ₽</strong>
     <button @click="removeProduct(product.id)" class="product__close">
       &times
     </button>
