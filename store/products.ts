@@ -83,8 +83,8 @@ export const useProductsStore = defineStore("products", () => {
   });
 
   const incrementCount = (index: number) => {
-    return products.value.map((product, i) => {
-      if (i === index - 1) {
+    return products.value.map(product => {
+      if (product.id === index) {
         product.count++;
       }
       return product;
@@ -92,8 +92,8 @@ export const useProductsStore = defineStore("products", () => {
   };
 
   const decrementCount = (index: number) => {
-    return products.value.map((product, i) => {
-      if (i === index - 1 && product.count >= 1) {
+    return products.value.map(product => {
+      if (product.id === index && product.count >= 1) {
         product.count--;
       }
       return product;
