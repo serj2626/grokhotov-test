@@ -25,8 +25,9 @@ defineProps<IProps>();
 .alert {
   position: absolute;
   top: 20px;
-  padding: 10px 15px;
-  background-color: orange;
+  right: 10%;
+  padding: 20px 15px;
+  background-color: rgb(0, 180, 6);
 
   border-radius: 15px;
 
