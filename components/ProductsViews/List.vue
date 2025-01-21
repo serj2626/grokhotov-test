@@ -21,14 +21,17 @@ onMounted(() => {
           :product="product"
         />
       </div>
-      <div class="products__swiper-btns">
+      <div class="products__swiper-actions">
         <button
           @click="swiper.prev()"
           class="products__swiper-prev swiper__btn"
         >
           <img src="~/assets/img/prev.svg" alt="prev" loading="lazy" />
         </button>
-
+        <p class="products__swiper-current">
+          <strong class="products__swiper-current-bold">1</strong> /
+          <span class="products__swiper-current-total">6</span>
+        </p>
         <button
           @click="swiper.next()"
           class="products__swiper-next swiper__btn"
@@ -43,14 +46,12 @@ onMounted(() => {
 .products__container_position {
   position: relative;
 }
-.products__swiper-btns {
+.products__swiper-actions {
   position: absolute;
+  display: flex;
+  align-items: center;
   top: 0;
   right: 20px;
-}
-
-.products__swiper-btns img {
-  padding: 16px;
 }
 
 .swiper__btn {
@@ -58,5 +59,19 @@ onMounted(() => {
   background-color: #90a2b5;
   border-radius: 50%;
   border: none;
+  padding: 15px 20px;
+}
+
+.products__swiper-current {
+  margin-inline: 20px 15px;
+}
+
+.products__swiper-current-bold {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.products__swiper-current-total{
+  color: var(--color-article-price);
 }
 </style>
