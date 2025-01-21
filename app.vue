@@ -1,4 +1,9 @@
 <script lang="ts" setup>
+import { useProductsStore } from "~/store/products";
+
+const store = useProductsStore();
+
+const { message } = storeToRefs(store);
 </script>
 
 <template>
@@ -9,5 +14,6 @@
     <BreadCrumb />
     <ShoppingCart />
     <ProductsViewsList />
+    <Alert :message="message" />
   </main>
 </template>
