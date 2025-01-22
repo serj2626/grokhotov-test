@@ -61,19 +61,25 @@ export const useProductsStore = defineStore("products", () => {
     return products.value.find((product) => product.id === id);
   };
 
+  function getTotalSum(sun: number) {
+    return String(sun).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+
   const allProducts = computed(() => {
     return products.value.map((product) => {
       return {
         ...product,
-        totalSum: product.price * product.count,
+        totalSum: getTotalSum(product.price * product.count),
       };
     });
   });
 
   const totalSum = computed(() => {
-    return products.value.reduce((acc, product) => {
-      return acc + product.price * product.count;
-    }, 0);
+    return getTotalSum(
+      products.value.reduce((acc, product) => {
+        return acc + product.price * product.count;
+      }, 0)
+    );
   });
 
   const totalCount = computed(() => {
@@ -116,10 +122,13 @@ export const useProductsStore = defineStore("products", () => {
   const submitForm = async () => {
     if (products.value.length) {
       try {
-        const response = await $fetch("https://0520dfbd4229d5e2.mokky.dev/orders", {
-          method: "POST",
-          body: products.value,
-        });
+        const response = await $fetch(
+          "https://0520dfbd4229d5e2.mokky.dev/orders",
+          {
+            method: "POST",
+            body: products.value,
+          }
+        );
         console.log(response);
         setValueMessage("Ваша заявка успешно отправлена");
         products.value = [];
