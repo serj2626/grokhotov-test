@@ -61,8 +61,8 @@ export const useProductsStore = defineStore("products", () => {
     return products.value.find((product) => product.id === id);
   };
 
-  function getTotalSum(sun: number) {
-    return String(sun).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  function getTotalSum(sum: number) {
+    return String(sum).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   }
 
   const allProducts = computed(() => {
