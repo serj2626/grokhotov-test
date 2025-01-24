@@ -13,7 +13,7 @@ const { delAllProducts } = store;
       <div class="shooping-cart__top">
         <div class="shooping-cart__content">
           <h2 class="shooping-cart__title">Ваша корзина</h2>
-          <span class="shooping-cart__count">{{ totalCount }} товара</span>
+          <span class="shooping-cart__count">{{ totalCount }}</span>
         </div>
 
         <a @click="delAllProducts" class="shooping-cart__clear"

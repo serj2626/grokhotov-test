@@ -65,11 +65,27 @@ export const useProductsStore = defineStore("products", () => {
     return String(sum).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   }
 
+  function getRussianEnding(number: number) {
+    let item = "товар";
+    const lastDigit = number % 10;
+    const lastTwoDigits = number % 100;
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+      return item + "ов";
+    } else if (lastDigit === 1) {
+      return item;
+    } else if (lastDigit >= 2 && lastDigit <= 4) {
+      return item + "а";
+    } else {
+      return item + "ов";
+    }
+  }
+
   const allProducts = computed(() => {
     return products.value.map((product) => {
       return {
         ...product,
-        totalSum: getTotalSum(product.price * product.count),
+        totalSum: product.price * product.count, // Return a number instead of a string
       };
     });
   });
@@ -83,9 +99,11 @@ export const useProductsStore = defineStore("products", () => {
   });
 
   const totalCount = computed(() => {
-    return products.value.reduce((acc, product) => {
+    let count = products.value.reduce((acc, product) => {
       return acc + product.count;
     }, 0);
+
+    return count + " " + getRussianEnding(count);
   });
 
   const incrementCount = (index: number) => {

@@ -19,7 +19,7 @@ const { totalCount, totalSum } = storeToRefs(store);
         />
         <div class="header__basket-content">
           <p class="header__basket-title">Ваша корзина</p>
-          <span class="header__basket-count">{{ totalCount }} товара</span>
+          <span class="header__basket-count">{{ totalCount }}</span>
           <strong class="header__basket-sum">{{ totalSum }} ₽</strong>
         </div>
       </div>
