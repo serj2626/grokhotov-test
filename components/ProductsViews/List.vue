@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 import { viewsProducts } from "~/types/product_views.data";
 const containerRef = ref(null);
-const swiper = useSwiper(containerRef);
+const swiper = useSwiper(containerRef, {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+});
 
 onMounted(() => {
   // Access Swiper instance
@@ -15,11 +19,13 @@ onMounted(() => {
     <div class="container products__container products__container_position">
       <h2 class="products__title">Просмотренные товары</h2>
       <div class="products__list">
-        <ProductsViewsDetail
-          v-for="(product, index) in viewsProducts"
-          :key="index"
-          :product="product"
-        />
+        <ClientOnly>
+          <swiper-container ref="containerRef">
+            <swiper-slide v-for="(product, idx) in viewsProducts" :key="idx">
+              <ProductsViewsDetail :product="product" />
+            </swiper-slide>
+          </swiper-container>
+        </ClientOnly>
       </div>
       <div class="products__swiper-actions">
         <button
@@ -71,7 +77,7 @@ onMounted(() => {
   font-size: 20px;
 }
 
-.products__swiper-current-total{
+.products__swiper-current-total {
   color: var(--color-article-price);
 }
 </style>
